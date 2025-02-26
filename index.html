@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글로벌 케어 - 외국인 유학생과 함께하는 영어돌봄 서비스</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+        
+        :root {
+            --primary-color: #2A41E8;
+            --secondary-color: #39D2C0;
+            --accent-color: #FF5A5F;
+            --gradient-start: #6B48FF;
+            --gradient-end: #4A99F9;
+            --text-color: #333;
+            --text-color-light: #666;
+            --light-bg: #F9FAFB;
+            --white: #FFFFFF;
+            --dark-color: #1A2233;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 30px rgba(42, 65, 232, 0.1);
+            --hover-transform: translateY(-5px);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--white);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 20px;
+            position: relative;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        /* === HEADER === */
+        header {
+            position: fixed;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 10px 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+        }
+        
+        .logo-text span {
+            color: var(--primary-color);
+        }
+        
+        .nav-menu {
+            display: flex;
+        }
+        
+        .nav-item {
+            margin: 0 15px;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .header-btn {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(42, 65, 232, 0.2);
+        }
+        
+        .header-btn i {
+            margin-right: 8px;
+        }
+        
+        .header-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(42, 65, 232, 0.4);
+        }
+        
+        .mobile-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark-color);
+        }
+        
+        /* === HERO SECTION === */
+        .hero {
+            background: linear-gradient(135deg, rgba(42, 65, 232, 0.95), rgba(107, 72, 255, 0.9)), url('/api/placeholder/1920/1080') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 180px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            bottom: -100px;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: var(--white);
+            transform: skewY(-4deg);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .primary-btn {
+            background-color: white;
+            color: var(--primary-color);
+            border: none;
+            padding: 15px 30px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .primary-btn i {
+            margin-right: 10px;
+        }
+        
+        .primary-btn:hover {
+            transform: var(--hover-transform);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        .secondary-btn {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            padding: 15px 30px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .secondary-btn i {
+            margin-right: 10px;
+        }
+        
+        .secondary-btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: var(--hover-transform);
+        }
+        
+        .hero-image {
+            position: absolute;
+            top: 50%;
+            right: -50px;
+            transform: translateY(-50%);
+            width: 600px;
+            filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.3));
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(-50%);
+            }
+            50% {
+                transform: translateY(-53%);
+            }
+        }
+        
+        /* === FEATURES SECTION === */
+        .features {
+            background-color: var(--white);
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+        
+        .section-subtitle {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+        
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--text-color-light);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            height: 100%;
+        }
+        
+        .feature-card::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            z-index: -1;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: var(--hover-transform);
+            box-shadow: 0 15px 50px rgba(42, 65, 232, 0.15);
+        }
+        
+        .feature-card:hover::before {
+            height: 10px;
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 30px;
+            background-color: rgba(42, 65, 232, 0.1);
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            transform: rotate(5deg) scale(1.1);
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .feature-description {
+            color: var(--text-color-light);
+            line-height: 1.7;
+        }
+        
+        /* === ABOUT SECTION === */
+        .about {
+            background-color: var(--light-bg);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about::before {
+            content: "";
+            position: absolute;
+            top: -100px;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: var(--white);
+            transform: skewY(-4deg);
+        }
+        
+        .about::after {
+            content: "";
+            position: absolute;
+            bottom: -100px;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: var(--white);
+            transform: skewY(4deg);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            position: relative;
+        }
+        
+        .about-img-main {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(42, 65, 232, 0.1);
+            color: var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        
+        .about-badge i {
+            margin-right: 8px;
+        }
+        
+        .about-title {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .about-description {
+            color: var(--text-color-light);
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+        }
+        
+        .about-points {
+            margin-bottom: 30px;
+        }
+        
+        .point-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .point-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            background-color: rgba(42, 65, 232, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            margin-top: 3px;
+            color: var(--primary-color);
+            font-size: 12px;
+        }
+        
+        .point-text {
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+        
+        /* === TESTIMONIALS SECTION === */
+        .testimonials {
+            background-color: var(--white);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--box-shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            height: 100%;
+        }
+        
+        .testimonial-card:hover {
+            transform: var(--hover-transform);
+            box-shadow: 0 15px 50px rgba(42, 65, 232, 0.15);
+        }
+        
+        .testimonial-quote {
+            font-size: 50px;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: rgba(42, 65, 232, 0.1);
+        }
+        
+        .testimonial-content {
+            font-size: 1.05rem;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+        
+        .author-info p {
+            font-size: 0.9rem;
+            color: var(--text-color-light);
+        }
+        
+        /* === CTA SECTION === */
+        .cta {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: "";
+            position: absolute;
+            top: -100px;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: var(--white);
+            transform: skewY(-4deg);
+        }
+        
+        .cta-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-description {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-btn {
+            background-color: white;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 15px 40px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-btn i {
+            margin-right: 10px;
+        }
+        
+        .cta-btn:hover {
+            transform: var(--hover-transform);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* === SIGNUP SECTION === */
+        .signup {
+            background-color: var(--white);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .signup-container {
+            display: flex;
+            align-items: stretch;
+            background-color: var(--light-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .signup-image {
+            flex: 1;
+            min-height: 600px;
+            background: url('/api/placeholder/800/1200') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .signup-image::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(107, 72, 255, 0.85), rgba(42, 65, 232, 0.85));
+        }
+        
+        .image-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            padding: 40px;
+            max-width: 400px;
+        }
+        
+        .image-content h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .image-content p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .benefits-list {
+            margin-top: 30px;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .benefit-icon {
+            width: 30px;
+            height: 30px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 14px;
+        }
+        
+        .benefit-text {
+            font-size: 1rem;
+        }
+        
+        .signup-form-container {
+            flex: 1;
+            padding: 60px;
+            background-color: white;
+        }
+        
+        .form-header {
+            margin-bottom: 40px;
+        }
+        
+        .form-title {
+            font-size: 1.8rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+        
+        .form-description {
+            color: var(--text-color-light);
+            font-size: 1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-color);
+            font-size: 0.95rem;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(42, 65, 232, 0.1);
+            outline: none;
+        }
+        
+        .form-input::placeholder {
+            color: #aaa;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            box-shadow: 0 10px 30px rgba(42, 65, 232, 0.3);
+        }
+        
+        .form-footer {
+            margin-top: 30px;
+            text-align: center;
+            color: var(--text-color-light);
+            font-size: 0.9rem;
+        }
+        
+        .form-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        /* === FOOTER === */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-column h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 3px;
+        }
+        
+        .footer-about p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+        
+        .footer-links a i {
+            margin-right: 10px;
+            font-size: 0.8rem;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .footer-contact p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+        
+        .footer-contact i {
+            margin-right: 15px;
+            color: var(--primary-color);
+            margin-top: 5px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+        .footer-divider {
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .copyright {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        .footer-bottom-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .footer-bottom-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-bottom-links a:hover {
+            color: white;
+        }
+        
+        /* === RESPONSIVE DESIGN === */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-image {
+                width: 500px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            .hero {
+                padding: 150px 0 60px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-image {
+                display: none;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .about-title {
+                font-size: 2rem;
+            }
+            
+            .signup-container {
+                flex-direction: column;
+            }
+            
+            .signup-image {
+                min-height: 300px;
+            }
+            
+            .signup-form-container {
+                padding: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 0;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 15px 0;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .hero {
+                padding: 130px 0 60px;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-btns {
+                justify-content: center;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .primary-btn, .secondary-btn {
+                width: 100%;
+            }
+            
+            .section-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-bottom-links {
+                justify-content: center;
+            }
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-img">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+                <div class="logo-text">글로벌<span>케어</span></div>
+            </div>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item"><a href="#features" class="nav-link">특장점</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">서비스 소개</a></li>
+                    <li class="nav-item"><a href="#testimonials" class="nav-link">학부모 후기</a></li>
+                    <li class="nav-item"><a href="#signup" class="nav-link">사전 등록</a></li>
+                </ul>
+                <div class="mobile-toggle" id="mobileToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+            <a href="#signup" class="header-btn">
+                <i class="fas fa-user-plus"></i> 사전 등록
+            </a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>외국인 유학생과 함께하는<br>프리미엄 영어돌봄 서비스</h1>
+                <p>법무부 허가로 합법적인 서비스! 자녀의 영어 실력을 저렴한 비용으로 키우며 글로벌 시민으로 성장시켜 드립니다.</p>
+                <div class="hero-btns">
+                    <a href="#signup" class="primary-btn">
+                        <i class="fas fa-paper-plane"></i> 사전 등록하기
+                    </a>
+                    <a href="#about" class="secondary-btn">
+                        <i class="fas fa-info-circle"></i> 자세히 알아보기
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">서비스 특장점</p>
+                <h2 class="section-title">글로벌 케어만의 특별함</h2>
+                <p class="section-description">원어민 강사의 1/3 가격으로 자녀에게 매일 영어 환경을 제공하세요!</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 class="feature-title">100% 합법적인 서비스</h3>
+                    <p class="feature-description">2025년 상반기부터 시행되는 법무부의 외국인 유학생 가사돌봄 허용 방안으로 안전하고 합법적인 서비스를 제공합니다.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3 class="feature-title">검증된 유학생 인재풀</h3>
+                    <p class="feature-description">각국에서 우수한 성적으로 선발된 교환학생들이 아이들에게 양질의 영어 교육과 문화 교류 기회를 제공합니다.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <h3 class="feature-title">합리적인 비용</h3>
+                    <p class="feature-description">원어민 영어 강사 대비 훨씬 저렴한 비용으로 매일 자연스러운 영어 환경을 자녀에게 제공할 수 있습니다.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="feature-title">글로벌 문화 교류</h3>
+                    <p class="feature-description">영어 학습을 넘어 다양한 문화를 체험하며 자녀가 글로벌 시민으로 성장할 수 있는 토대를 마련해 드립니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://img.freepik.com/free-vector/happy-mom-combining-freelance-work-motherhood-woman-sitting-workplace-home-holding-child-arms-flat-vector-illustration-freelancer-mother-family-career-concept_74855-10083.jpg" alt="외국인 학생과 함께하는 아이들" class="about-img-main">
+                </div>
+                <div class="about-text">
+                    <div class="about-badge">
+                        <i class="fas fa-lightbulb"></i> 글로벌 케어의 탄생 배경
+                    </div>
+                    <h2 class="about-title">대학교 국제처 경력 워킹맘이 만든 서비스</h2>
+                    <p class="about-description">30개월 아이를 키우는 워킹맘으로서 영어교육에 대한 고민과 대학교 국제처 경력을 바탕으로 이 서비스를 기획하게 되었습니다. 우수한 외국인 유학생들이 한국에서 활동할 기회를 제공하면서 동시에 한국 아이들에게 양질의 영어 교육을 저렴하게 제공하고자 합니다.</p>
+                    <div class="about-points">
+                        <div class="point-item">
+                            <div class="point-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="point-text">외국인 학생들에게 한국 생활 적응과 경제적 지원 기회 제공</div>
+                        </div>
+                        <div class="point-item">
+                            <div class="point-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="point-text">한국 가정에는 원어민과 함께하는 자연스러운 영어 환경 조성</div>
+                        </div>
+                        <div class="point-item">
+                            <div class="point-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="point-text">법무부의 제도 변화를 통한 합법적인 서비스 운영</div>
+                        </div>
+                    </div>
+                    <a href="#signup" class="primary-btn">
+                        <i class="fas fa-paper-plane"></i> 사전 등록하기
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">추천사</p>
+                <h2 class="section-title">학부모들의 기대평</h2>
+                <p class="section-description">영어돌봄 서비스에 관심을 보이신 학부모님들의 기대 후기입니다</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="testimonial-content">아이 영어 교육에 많은 비용을 들이고 있었는데, 이런 서비스가 있다면 정말 좋을 것 같아요. 외국인 유학생들이 검증된 인재라는 점이 특히 마음에 듭니다.</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>이지민</h4>
+                            <p>초등학교 1학년 학부모</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="testimonial-content">아이가 영어를 자연스럽게 배울 수 있는 환경을 만들어주고 싶었는데, 매일 영어로 대화할 수 있는 기회가 생긴다면 정말 좋을 것 같아요. 꼭 출시되길 기대합니다.</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>김민준</h4>
+                            <p>유치원생 학부모</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="testimonial-content">워킹맘으로서 아이 돌봄과 영어 교육을 동시에 해결할 수 있는 서비스가 있다면 정말 도움이 될 것 같아요. 합법적인 서비스라 더욱 믿음이 갑니다.</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>박소연</h4>
+                            <p>36개월 아이 학부모</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">2025년 8월 서비스 출시 예정</h2>
+                <p class="cta-description">지금 사전 등록하시면 서비스 출시 소식을 가장 먼저 받아보실 수 있으며, 특별 할인 혜택을 제공해 드립니다.</p>
+                <a href="#signup" class="cta-btn">
+                    <i class="fas fa-paper-plane"></i> 사전 등록하기
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="signup" class="signup">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">사전 등록</p>
+                <h2 class="section-title">서비스 출시 소식을 가장 먼저 받아보세요</h2>
+                <p class="section-description">사전 등록하신 분들께는 특별 할인 쿠폰을 제공해 드립니다</p>
+            </div>
+            <div class="signup-container">
+                <div class="signup-image">
+                    <div class="image-content">
+                        <h3>글로벌 케어와 함께<br>자녀의 영어 교육을 시작하세요</h3>
+                        <p>2025년 8월, 법무부 허가 외국인 유학생 돌봄 서비스가 시작됩니다.</p>
+                        <div class="benefits-list">
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="benefit-text">서비스 출시 시 특별 할인 쿠폰 제공</div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="benefit-text">우선 예약 기회</div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="benefit-text">영어 교육 관련 뉴스레터 무료 구독</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="signup-form-container">
+                    <div class="form-header">
+                        <h3 class="form-title">사전 등록하기</h3>
+                        <p class="form-description">아래 정보를 입력하시면 서비스 출시 시 가장 먼저 연락드립니다.</p>
+                    </div>
+                    <form action="https://docs.google.com/forms/d/e/1FAIpQLSfaS8l2m1V-_EAzLFcyZbSI0OdeIx1xovUgJHBjakDT9AwgLw/formResponse" method="POST" target="_blank">
+                        <div class="form-group">
+                            <label for="name" class="form-label">이름</label>
+                            <input type="text" id="name" class="form-input" placeholder="이름을 입력해주세요" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">이메일</label>
+                            <input type="email" id="email" class="form-input" placeholder="example@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label">연락처</label>
+                            <input type="tel" id="phone" class="form-input" placeholder="010-0000-0000" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="child-age" class="form-label">자녀 나이</label>
+                            <input type="text" id="child-age" class="form-input" placeholder="자녀의 나이를 입력해주세요">
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> 사전 등록 신청하기
+                        </button>
+                    </form>
+                    <div class="form-footer">
+                        <p>개인정보 수집에 동의합니다. <a href="#">개인정보처리방침</a> 보기</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column footer-about">
+                    <h3>글로벌 케어</h3>
+                    <p>외국인 유학생과 함께하는 프리미엄 영어돌봄 서비스, 글로벌 케어는 아이들의 영어 교육과 글로벌 시민 육성을 위해 최선을 다하겠습니다.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column footer-links">
+                    <h3>빠른 링크</h3>
+                    <ul>
+                        <li><a href="#features"><i class="fas fa-chevron-right"></i> 서비스 특장점</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> 서비스 소개</a></li>
+                        <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> 학부모 후기</a></li>
+                        <li><a href="#signup"><i class="fas fa-chevron-right"></i> 사전 등록</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column footer-links">
+                    <h3>서비스 안내</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> 서비스 이용 방법</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> 자주 묻는 질문</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> 이용약관</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> 개인정보처리방침</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column footer-contact">
+                    <h3>연락처</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 서울특별시 강남구 테헤란로 123</p>
+                    <p><i class="fas fa-phone"></i> 02-123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@globalcare.kr</p>
+                    <p><i class="fas fa-clock"></i> 평일 09:00 - 18:00</p>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-bottom">
+                <p class="copyright">© 2025 글로벌 케어. All Rights Reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">이용약관</a>
+                    <a href="#">개인정보처리방침</a>
+                    <a href="#">쿠키 정책</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            // Mobile menu toggle
+            $("#mobileToggle").click(function() {
+                $("#navMenu").toggleClass("active");
+            });
+            
+            // Smooth scrolling for anchor links
+            $('a[href*="#"]:not([href="#"])').click(function() {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html, body').animate({
+                            scrollTop: target.offset().top - 80
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
+            
+            // Header scroll effect
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 50) {
+                    $('#header').addClass('scrolled');
+                } else {
+                    $('#header').removeClass('scrolled');
+                }
+            });
+            
+            // Form submission (prevent default and show success message)
+            $("#signupForm").submit(function(e) {
+                e.preventDefault();
+                alert("사전 등록이 완료되었습니다! 서비스 출시 시 연락드리겠습니다.");
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>
