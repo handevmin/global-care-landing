@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>글로벌 케어 - 외국인 유학생과 함께하는 영어돌봄 서비스</title>
+    <title>콕콕케어 - 외국인 유학생과 함께하는 영어돌봄 서비스</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
         
         :root {
-            --primary-color: #2A41E8;
-            --secondary-color: #39D2C0;
-            --accent-color: #FF5A5F;
-            --gradient-start: #6B48FF;
-            --gradient-end: #4A99F9;
+            --primary-color: #98AFFF;
+            --secondary-color: #FFE898;
+            --accent-color: #98AFFF;
+            --gradient-start: #FFE898;
+            --gradient-end: #98AFFF;
             --text-color: #333;
             --text-color-light: #666;
-            --light-bg: #F9FAFB;
+            --light-bg: #FFF9E4;
             --white: #FFFFFF;
             --dark-color: #1A2233;
             --border-radius: 12px;
-            --box-shadow: 0 10px 30px rgba(42, 65, 232, 0.1);
+            --box-shadow: 0 10px 30px rgba(152, 175, 255, 0.1);
             --hover-transform: translateY(-5px);
         }
         
@@ -82,27 +82,32 @@
         }
         
         .logo-img {
-            width: 40px;
-            height: 40px;
-            margin-right: 10px;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 20px;
-        }
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    background-color: transparent; /* 배경색 제거 */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* 이미지가 컨테이너를 벗어나지 않도록 */
+}
+
+.logo-img img {
+    width: 100%; /* 이미지가 컨테이너에 꽉 차도록 */
+    height: 100%;
+    object-fit: contain; /* 이미지 비율 유지 */
+}
         
         .logo-text {
             font-weight: 700;
             font-size: 1.5rem;
             color: var(--dark-color);
         }
-        
+/*         
         .logo-text span {
             color: var(--primary-color);
-        }
+        } */
         
         .nav-menu {
             display: flex;
@@ -141,8 +146,8 @@
         }
         
         .header-btn {
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            color: white;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
             border: none;
             padding: 10px 20px;
             border-radius: 50px;
@@ -153,7 +158,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 15px rgba(42, 65, 232, 0.2);
+            box-shadow: 0 4px 15px rgba(152, 175, 255, 0.2);
         }
         
         .header-btn i {
@@ -162,7 +167,7 @@
         
         .header-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(42, 65, 232, 0.4);
+            box-shadow: 0 6px 20px rgba(152, 175, 255, 0.4);
         }
         
         .mobile-toggle {
@@ -174,9 +179,9 @@
         
         /* === HERO SECTION === */
         .hero {
-            background: linear-gradient(135deg, rgba(42, 65, 232, 0.95), rgba(107, 72, 255, 0.9)), url('/api/placeholder/1920/1080') no-repeat center center;
+            background-color: var(--secondary-color);
             background-size: cover;
-            color: white;
+            color: var(--text-color);
             padding: 180px 0 80px;
             position: relative;
             overflow: hidden;
@@ -245,8 +250,8 @@
         }
         
         .secondary-btn {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: white;
+            background-color: rgba(200, 200, 200, 0.2);
+            color: var(--dark-color); /* 배경이 밝아서 어두운 글자색 사용 */
             border: 1px solid rgba(255, 255, 255, 0.6);
             padding: 15px 30px;
             border-radius: var(--border-radius);
@@ -357,7 +362,7 @@
         
         .feature-card:hover {
             transform: var(--hover-transform);
-            box-shadow: 0 15px 50px rgba(42, 65, 232, 0.15);
+            box-shadow: 0 15px 50px rgba(152, 175, 255, 0.15);
         }
         
         .feature-card:hover::before {
@@ -373,7 +378,7 @@
             justify-content: center;
             margin-bottom: 25px;
             font-size: 30px;
-            background-color: rgba(42, 65, 232, 0.1);
+            background-color: rgba(152, 175, 255, 0.1);
             color: var(--primary-color);
             transition: all 0.3s ease;
         }
@@ -394,711 +399,711 @@
             color: var(--text-color-light);
             line-height: 1.7;
         }
-        
+
         /* === ABOUT SECTION === */
-        .about {
-            background-color: var(--light-bg);
-            position: relative;
-            overflow: hidden;
+    .about {
+        background-color: var(--light-bg);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .about::before {
+        content: "";
+        position: absolute;
+        top: -100px;
+        left: 0;
+        width: 100%;
+        height: 200px;
+        background: var(--white);
+        transform: skewY(-4deg);
+    }
+    
+    .about::after {
+        content: "";
+        position: absolute;
+        bottom: -100px;
+        left: 0;
+        width: 100%;
+        height: 200px;
+        background: var(--white);
+        transform: skewY(4deg);
+    }
+    
+    .about-content {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .about-image {
+        flex: 1;
+        position: relative;
+    }
+    
+    .about-img-main {
+        width: 100%;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        transition: all 0.3s ease;
+    }
+    
+    .about-text {
+        flex: 1;
+    }
+    
+    .about-badge {
+        display: inline-flex;
+        align-items: center;
+        background-color: rgba(152, 175, 255, 0.1);
+        color: var(--primary-color);
+        padding: 8px 15px;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+    
+    .about-badge i {
+        margin-right: 8px;
+    }
+    
+    .about-title {
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+        color: var(--dark-color);
+    }
+    
+    .about-description {
+        color: var(--text-color-light);
+        margin-bottom: 30px;
+        font-size: 1.05rem;
+    }
+    
+    .about-points {
+        margin-bottom: 30px;
+    }
+    
+    .point-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 15px;
+    }
+    
+    .point-icon {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        background-color: rgba(152, 175, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        margin-top: 3px;
+        color: var(--primary-color);
+        font-size: 12px;
+    }
+    
+    .point-text {
+        font-size: 1rem;
+        color: var(--text-color);
+    }
+    
+    /* === TESTIMONIALS SECTION === */
+    .testimonials {
+        background-color: var(--white);
+        position: relative;
+        z-index: 1;
+    }
+    
+    .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+    }
+    
+    .testimonial-card {
+        background-color: var(--white);
+        border-radius: var(--border-radius);
+        padding: 40px;
+        box-shadow: var(--box-shadow);
+        transition: all 0.3s ease;
+        position: relative;
+        height: 100%;
+    }
+    
+    .testimonial-card:hover {
+        transform: var(--hover-transform);
+        box-shadow: 0 15px 50px rgba(152, 175, 255, 0.15);
+    }
+    
+    .testimonial-quote {
+        font-size: 50px;
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: rgba(152, 175, 255, 0.1);
+    }
+    
+    .testimonial-content {
+        font-size: 1.05rem;
+        color: var(--text-color);
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .testimonial-author {
+        display: flex;
+        align-items: center;
+    }
+    
+    .author-image {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-right: 15px;
+        object-fit: cover;
+    }
+    
+    .author-info h4 {
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+        color: var(--dark-color);
+    }
+    
+    .author-info p {
+        font-size: 0.9rem;
+        color: var(--text-color-light);
+    }
+    
+    /* === CTA SECTION === */
+    .cta {
+        background-color: var(--light-bg);
+        color: var(--text-color);
+        padding: 120px 0;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .cta::before {
+        content: "";
+        position: absolute;
+        top: -100px;
+        left: 0;
+        width: 100%;
+        height: 200px;
+        background: var(--white);
+        transform: skewY(-4deg);
+    }
+    
+    .cta-content {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .cta-title {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .cta-description {
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+        opacity: 0.9;
+    }
+    
+    .cta-btn {
+        background-color: white;
+        color: var(--primary-color);
+        font-weight: 600;
+        font-size: 1.1rem;
+        padding: 15px 40px;
+        border-radius: var(--border-radius);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .cta-btn i {
+        margin-right: 10px;
+    }
+    
+    .cta-btn:hover {
+        transform: var(--hover-transform);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    /* === SIGNUP SECTION === */
+    .signup {
+        background-color: var(--white);
+        position: relative;
+        z-index: 1;
+    }
+    
+    .signup-container {
+        display: flex;
+        align-items: stretch;
+        background-color: var(--light-bg);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--box-shadow);
+    }
+    
+    .signup-image {
+        flex: 1;
+        min-height: 600px;
+        background: url('/api/placeholder/800/1200') no-repeat center center;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    
+    .signup-image::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--primary-color);
+    }
+    
+    .image-content {
+        position: relative;
+        z-index: 1;
+        color: white;
+        padding: 40px;
+        max-width: 400px;
+    }
+    
+    .image-content h3 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    
+    .image-content p {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+        opacity: 0.9;
+    }
+    
+    .benefits-list {
+        margin-top: 30px;
+    }
+    
+    .benefit-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .benefit-icon {
+        width: 30px;
+        height: 30px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        font-size: 14px;
+    }
+    
+    .benefit-text {
+        font-size: 1rem;
+    }
+    
+    .signup-form-container {
+        flex: 1;
+        padding: 60px;
+        background-color: white;
+    }
+    
+    .form-header {
+        margin-bottom: 40px;
+    }
+    
+    .form-title {
+        font-size: 1.8rem;
+        color: var(--dark-color);
+        margin-bottom: 15px;
+    }
+    
+    .form-description {
+        color: var(--text-color-light);
+        font-size: 1rem;
+    }
+    
+    .form-group {
+        margin-bottom: 25px;
+    }
+    
+    .form-label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: var(--dark-color);
+        font-size: 0.95rem;
+    }
+    
+    .form-input {
+        width: 100%;
+        padding: 15px 20px;
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+    
+    .form-input:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(152, 175, 255, 0.1);
+        outline: none;
+    }
+    
+    .form-input::placeholder {
+        color: #aaa;
+    }
+    
+    .submit-btn {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        border-radius: 10px;
+        background-color: var(--primary-color);
+        color: white;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+    }
+    
+    .submit-btn:hover {
+        box-shadow: 0 10px 30px rgba(152, 175, 255, 0.3);
+    }
+    
+    .form-footer {
+        margin-top: 30px;
+        text-align: center;
+        color: var(--text-color-light);
+        font-size: 0.9rem;
+    }
+    
+    .form-footer a {
+        color: var(--primary-color);
+        text-decoration: none;
+    }
+
+    /* === FOOTER === */
+    footer {
+        background-color: var(--dark-color);
+        color: white;
+        padding: 80px 0 30px;
+    }
+    
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 40px;
+        margin-bottom: 60px;
+    }
+    
+    .footer-column h3 {
+        font-size: 1.2rem;
+        margin-bottom: 25px;
+        position: relative;
+        padding-bottom: 15px;
+    }
+    
+    .footer-column h3::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+        border-radius: 3px;
+    }
+    
+    .footer-about p {
+        margin-bottom: 20px;
+        line-height: 1.8;
+        font-size: 0.95rem;
+        opacity: 0.8;
+    }
+    
+    .footer-links ul {
+        list-style: none;
+    }
+    
+    .footer-links li {
+        margin-bottom: 15px;
+    }
+    
+    .footer-links a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        font-size: 0.95rem;
+    }
+    
+    .footer-links a i {
+        margin-right: 10px;
+        font-size: 0.8rem;
+    }
+    
+    .footer-links a:hover {
+        color: white;
+        transform: translateX(5px);
+    }
+    
+    .footer-contact p {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: flex-start;
+        font-size: 0.95rem;
+        opacity: 0.8;
+    }
+    
+    .footer-contact i {
+        margin-right: 15px;
+        color: var(--primary-color);
+        margin-top: 5px;
+    }
+    
+    .social-icons {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    
+    .social-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+    
+    .social-icon:hover {
+        background-color: var(--primary-color);
+        transform: translateY(-5px);
+    }
+    
+    .footer-divider {
+        height: 1px;
+        background-color: rgba(255, 255, 255, 0.1);
+        margin-bottom: 30px;
+    }
+    
+    .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .copyright {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.9rem;
+    }
+    
+    .footer-bottom-links {
+        display: flex;
+        gap: 20px;
+    }
+    
+    .footer-bottom-links a {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+    }
+    
+    .footer-bottom-links a:hover {
+        color: white;
+    }
+
+    /* === RESPONSIVE DESIGN === */
+    @media (max-width: 1200px) {
+        .hero h1 {
+            font-size: 3rem;
         }
         
-        .about::before {
-            content: "";
-            position: absolute;
-            top: -100px;
-            left: 0;
-            width: 100%;
-            height: 200px;
-            background: var(--white);
-            transform: skewY(-4deg);
+        .hero-image {
+            width: 500px;
+        }
+    }
+    
+    @media (max-width: 992px) {
+        section {
+            padding: 60px 0;
         }
         
-        .about::after {
-            content: "";
-            position: absolute;
-            bottom: -100px;
-            left: 0;
-            width: 100%;
-            height: 200px;
-            background: var(--white);
-            transform: skewY(4deg);
+        .hero {
+            padding: 150px 0 60px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+        
+        .hero-image {
+            display: none;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
         }
         
         .about-content {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .about-image {
-            flex: 1;
-            position: relative;
-        }
-        
-        .about-img-main {
-            width: 100%;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            transition: all 0.3s ease;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-badge {
-            display: inline-flex;
-            align-items: center;
-            background-color: rgba(42, 65, 232, 0.1);
-            color: var(--primary-color);
-            padding: 8px 15px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
-        
-        .about-badge i {
-            margin-right: 8px;
+            flex-direction: column;
+            gap: 40px;
         }
         
         .about-title {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: var(--dark-color);
-        }
-        
-        .about-description {
-            color: var(--text-color-light);
-            margin-bottom: 30px;
-            font-size: 1.05rem;
-        }
-        
-        .about-points {
-            margin-bottom: 30px;
-        }
-        
-        .point-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-        
-        .point-icon {
-            flex-shrink: 0;
-            width: 24px;
-            height: 24px;
-            background-color: rgba(42, 65, 232, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            margin-top: 3px;
-            color: var(--primary-color);
-            font-size: 12px;
-        }
-        
-        .point-text {
-            font-size: 1rem;
-            color: var(--text-color);
-        }
-        
-        /* === TESTIMONIALS SECTION === */
-        .testimonials {
-            background-color: var(--white);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-        
-        .testimonial-card {
-            background-color: var(--white);
-            border-radius: var(--border-radius);
-            padding: 40px;
-            box-shadow: var(--box-shadow);
-            transition: all 0.3s ease;
-            position: relative;
-            height: 100%;
-        }
-        
-        .testimonial-card:hover {
-            transform: var(--hover-transform);
-            box-shadow: 0 15px 50px rgba(42, 65, 232, 0.15);
-        }
-        
-        .testimonial-quote {
-            font-size: 50px;
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: rgba(42, 65, 232, 0.1);
-        }
-        
-        .testimonial-content {
-            font-size: 1.05rem;
-            color: var(--text-color);
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-        
-        .author-image {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            margin-right: 15px;
-            object-fit: cover;
-        }
-        
-        .author-info h4 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            color: var(--dark-color);
-        }
-        
-        .author-info p {
-            font-size: 0.9rem;
-            color: var(--text-color-light);
-        }
-        
-        /* === CTA SECTION === */
-        .cta {
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            color: white;
-            padding: 120px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta::before {
-            content: "";
-            position: absolute;
-            top: -100px;
-            left: 0;
-            width: 100%;
-            height: 200px;
-            background: var(--white);
-            transform: skewY(-4deg);
-        }
-        
-        .cta-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .cta-title {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .cta-description {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            opacity: 0.9;
-        }
-        
-        .cta-btn {
-            background-color: white;
-            color: var(--primary-color);
-            font-weight: 600;
-            font-size: 1.1rem;
-            padding: 15px 40px;
-            border-radius: var(--border-radius);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .cta-btn i {
-            margin-right: 10px;
-        }
-        
-        .cta-btn:hover {
-            transform: var(--hover-transform);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* === SIGNUP SECTION === */
-        .signup {
-            background-color: var(--white);
-            position: relative;
-            z-index: 1;
+            font-size: 2rem;
         }
         
         .signup-container {
-            display: flex;
-            align-items: stretch;
-            background-color: var(--light-bg);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
+            flex-direction: column;
         }
         
         .signup-image {
-            flex: 1;
-            min-height: 600px;
-            background: url('/api/placeholder/800/1200') no-repeat center center;
-            background-size: cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        
-        .signup-image::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(107, 72, 255, 0.85), rgba(42, 65, 232, 0.85));
-        }
-        
-        .image-content {
-            position: relative;
-            z-index: 1;
-            color: white;
-            padding: 40px;
-            max-width: 400px;
-        }
-        
-        .image-content h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-        
-        .image-content p {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-        
-        .benefits-list {
-            margin-top: 30px;
-        }
-        
-        .benefit-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .benefit-icon {
-            width: 30px;
-            height: 30px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            font-size: 14px;
-        }
-        
-        .benefit-text {
-            font-size: 1rem;
+            min-height: 300px;
         }
         
         .signup-form-container {
-            flex: 1;
-            padding: 60px;
+            padding: 40px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        header {
+            padding: 15px 0;
+        }
+        
+        .nav-menu {
+            position: fixed;
+            top: 70px;
+            left: -100%;
+            flex-direction: column;
             background-color: white;
+            width: 100%;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
         
-        .form-header {
-            margin-bottom: 40px;
+        .nav-menu.active {
+            left: 0;
         }
         
-        .form-title {
-            font-size: 1.8rem;
-            color: var(--dark-color);
-            margin-bottom: 15px;
+        .nav-item {
+            margin: 15px 0;
         }
         
-        .form-description {
-            color: var(--text-color-light);
-            font-size: 1rem;
-        }
-        
-        .form-group {
-            margin-bottom: 25px;
-        }
-        
-        .form-label {
+        .mobile-toggle {
             display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--dark-color);
-            font-size: 0.95rem;
         }
         
-        .form-input {
-            width: 100%;
-            padding: 15px 20px;
-            border: 1px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-        
-        .form-input:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(42, 65, 232, 0.1);
-            outline: none;
-        }
-        
-        .form-input::placeholder {
-            color: #aaa;
-        }
-        
-        .submit-btn {
-            width: 100%;
-            padding: 15px;
-            border: none;
-            border-radius: 10px;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            color: white;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
-        
-        .submit-btn:hover {
-            box-shadow: 0 10px 30px rgba(42, 65, 232, 0.3);
-        }
-        
-        .form-footer {
-            margin-top: 30px;
+        .hero {
+            padding: 130px 0 60px;
             text-align: center;
-            color: var(--text-color-light);
+        }
+        
+        .hero h1 {
+            font-size: 2rem;
+        }
+        
+        .hero-btns {
+            justify-content: center;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+        }
+        
+        .testimonial-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .feature-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .hero h1 {
+            font-size: 1.8rem;
+        }
+        
+        .hero p {
+            font-size: 1rem;
+        }
+        
+        .hero-btns {
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .primary-btn, .secondary-btn {
+            width: 100%;
+        }
+        
+        .section-subtitle {
             font-size: 0.9rem;
         }
         
-        .form-footer a {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-        
-        /* === FOOTER === */
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 80px 0 30px;
+        .section-title {
+            font-size: 1.6rem;
         }
         
         .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-        
-        .footer-column h3::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            border-radius: 3px;
-        }
-        
-        .footer-about p {
-            margin-bottom: 20px;
-            line-height: 1.8;
-            font-size: 0.95rem;
-            opacity: 0.8;
-        }
-        
-        .footer-links ul {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 15px;
-        }
-        
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            font-size: 0.95rem;
-        }
-        
-        .footer-links a i {
-            margin-right: 10px;
-            font-size: 0.8rem;
-        }
-        
-        .footer-links a:hover {
-            color: white;
-            transform: translateX(5px);
-        }
-        
-        .footer-contact p {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: flex-start;
-            font-size: 0.95rem;
-            opacity: 0.8;
-        }
-        
-        .footer-contact i {
-            margin-right: 15px;
-            color: var(--primary-color);
-            margin-top: 5px;
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        
-        .social-icon:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-5px);
-        }
-        
-        .footer-divider {
-            height: 1px;
-            background-color: rgba(255, 255, 255, 0.1);
-            margin-bottom: 30px;
+            grid-template-columns: 1fr;
         }
         
         .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        
-        .copyright {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
+            flex-direction: column;
+            text-align: center;
         }
         
         .footer-bottom-links {
-            display: flex;
-            gap: 20px;
+            justify-content: center;
         }
-        
-        .footer-bottom-links a {
-            color: rgba(255, 255, 255, 0.6);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-        
-        .footer-bottom-links a:hover {
-            color: white;
-        }
-        
-        /* === RESPONSIVE DESIGN === */
-        @media (max-width: 1200px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-            
-            .hero-image {
-                width: 500px;
-            }
-        }
-        
-        @media (max-width: 992px) {
-            section {
-                padding: 60px 0;
-            }
-            
-            .hero {
-                padding: 150px 0 60px;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-image {
-                display: none;
-            }
-            
-            .section-title {
-                font-size: 2.2rem;
-            }
-            
-            .about-content {
-                flex-direction: column;
-                gap: 40px;
-            }
-            
-            .about-title {
-                font-size: 2rem;
-            }
-            
-            .signup-container {
-                flex-direction: column;
-            }
-            
-            .signup-image {
-                min-height: 300px;
-            }
-            
-            .signup-form-container {
-                padding: 40px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            header {
-                padding: 15px 0;
-            }
-            
-            .nav-menu {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                flex-direction: column;
-                background-color: white;
-                width: 100%;
-                padding: 20px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-                transition: all 0.3s ease;
-            }
-            
-            .nav-menu.active {
-                left: 0;
-            }
-            
-            .nav-item {
-                margin: 15px 0;
-            }
-            
-            .mobile-toggle {
-                display: block;
-            }
-            
-            .hero {
-                padding: 130px 0 60px;
-                text-align: center;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero-btns {
-                justify-content: center;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .testimonial-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .feature-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .hero-btns {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .primary-btn, .secondary-btn {
-                width: 100%;
-            }
-            
-            .section-subtitle {
-                font-size: 0.9rem;
-            }
-            
-            .section-title {
-                font-size: 1.6rem;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .footer-bottom-links {
-                justify-content: center;
-            }
-        }
-    </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
     <header id="header">
         <div class="container header-container">
             <div class="logo">
                 <div class="logo-img">
-                    <i class="fas fa-globe-americas"></i>
+                    <img src="콕콕케어.png" alt="콕콕케어 로고">
                 </div>
-                <div class="logo-text">글로벌<span>케어</span></div>
+                <div class="logo-text">콕콕<span>케어</span></div>
             </div>
             <nav>
                 <ul class="nav-menu" id="navMenu">
@@ -1138,8 +1143,8 @@
         <div class="container">
             <div class="section-header">
                 <p class="section-subtitle">서비스 특장점</p>
-                <h2 class="section-title">글로벌 케어만의 특별함</h2>
-                <p class="section-description">원어민 강사의 1/3 가격으로 자녀에게 매일 영어 환경을 제공하세요!</p>
+                <h2 class="section-title">콕콕 케어만의 특별함</h2>
+                <p class="section-description">원어민 강사의 2/3 가격으로 자녀에게 매일 영어 환경을 제공하세요!</p>
             </div>
             <div class="feature-grid">
                 <div class="feature-card">
@@ -1182,7 +1187,7 @@
                 </div>
                 <div class="about-text">
                     <div class="about-badge">
-                        <i class="fas fa-lightbulb"></i> 글로벌 케어의 탄생 배경
+                        <i class="fas fa-lightbulb"></i> 콕콕 케어의 탄생 배경
                     </div>
                     <h2 class="about-title">대학교 국제처 경력 워킹맘이 만든 서비스</h2>
                     <p class="about-description">30개월 아이를 키우는 워킹맘으로서 영어교육에 대한 고민과 대학교 국제처 경력을 바탕으로 이 서비스를 기획하게 되었습니다. 우수한 외국인 유학생들이 한국에서 활동할 기회를 제공하면서 동시에 한국 아이들에게 양질의 영어 교육을 저렴하게 제공하고자 합니다.</p>
@@ -1284,7 +1289,7 @@
             <div class="signup-container">
                 <div class="signup-image">
                     <div class="image-content">
-                        <h3>글로벌 케어와 함께<br>자녀의 영어 교육을 시작하세요</h3>
+                        <h3>콕콕 케어와 함께<br>자녀의 영어 교육을 시작하세요</h3>
                         <p>2025년 8월, 법무부 허가 외국인 유학생 돌봄 서비스가 시작됩니다.</p>
                         <div class="benefits-list">
                             <div class="benefit-item">
@@ -1298,12 +1303,6 @@
                                     <i class="fas fa-check"></i>
                                 </div>
                                 <div class="benefit-text">우선 예약 기회</div>
-                            </div>
-                            <div class="benefit-item">
-                                <div class="benefit-icon">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div class="benefit-text">영어 교육 관련 뉴스레터 무료 구독</div>
                             </div>
                         </div>
                     </div>
@@ -1327,15 +1326,15 @@
                             <input type="tel" id="phone" class="form-input" placeholder="010-0000-0000" required>
                         </div>
                         <div class="form-group">
-                            <label for="child-age" class="form-label">자녀 나이</label>
-                            <input type="text" id="child-age" class="form-input" placeholder="자녀의 나이를 입력해주세요">
+                            <label for="child-age" class="form-label">자녀의 출생연도</label>
+                            <input type="text" id="child-age" class="form-input" placeholder="자녀의 출생연도를 입력해주세요">
                         </div>
                         <button type="submit" class="submit-btn">
                             <i class="fas fa-paper-plane"></i> 사전 등록 신청하기
                         </button>
                     </form>
                     <div class="form-footer">
-                        <p>개인정보 수집에 동의합니다. <a href="#">개인정보처리방침</a> 보기</p>
+                        <p>개인정보 수집에 동의합니다. <a href="https://www.notion.so/1a81c82081f380aba8b0f3ac8510961b?v=1a81c82081f3801a9239000c587a767a&pvs=4">개인정보처리방침</a> 보기</p>
                     </div>
                 </div>
             </div>
@@ -1346,13 +1345,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column footer-about">
-                    <h3>글로벌 케어</h3>
-                    <p>외국인 유학생과 함께하는 프리미엄 영어돌봄 서비스, 글로벌 케어는 아이들의 영어 교육과 글로벌 시민 육성을 위해 최선을 다하겠습니다.</p>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-                    </div>
+                    <h3>콕콕 케어</h3>
+                    <p>외국인 유학생과 함께하는 프리미엄 영어돌봄 서비스, 콕콕 케어는 아이들의 영어 교육과 글로벌 시민 육성을 위해 최선을 다하겠습니다.</p>
                 </div>
                 <div class="footer-column footer-links">
                     <h3>빠른 링크</h3>
@@ -1366,27 +1360,25 @@
                 <div class="footer-column footer-links">
                     <h3>서비스 안내</h3>
                     <ul>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> 서비스 이용 방법</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> 자주 묻는 질문</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> 이용약관</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> 개인정보처리방침</a></li>
+                        <li><a href="https://www.notion.so/1a81c82081f380aba8b0f3ac8510961b?v=1a81c82081f3801a9239000c587a767a&pvs=4"><i class="fas fa-chevron-right"></i> 서비스 이용 방법</a></li>
+                        <li><a href="https://www.notion.so/1a81c82081f380aba8b0f3ac8510961b?v=1a81c82081f3801a9239000c587a767a&pvs=4"><i class="fas fa-chevron-right"></i> 자주 묻는 질문</a></li>
+                        <li><a href="https://www.notion.so/1a81c82081f380aba8b0f3ac8510961b?v=1a81c82081f3801a9239000c587a767a&pvs=4"><i class="fas fa-chevron-right"></i> 이용약관</a></li>
+                        <li><a href="https://www.notion.so/1a81c82081f380aba8b0f3ac8510961b?v=1a81c82081f3801a9239000c587a767a&pvs=4"><i class="fas fa-chevron-right"></i> 개인정보처리방침</a></li>
                     </ul>
                 </div>
                 <div class="footer-column footer-contact">
                     <h3>연락처</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> 서울특별시 강남구 테헤란로 123</p>
-                    <p><i class="fas fa-phone"></i> 02-123-4567</p>
-                    <p><i class="fas fa-envelope"></i> info@globalcare.kr</p>
+                    <p><i class="fas fa-envelope"></i> k.opportunitycreator@gmail.com</p>
                     <p><i class="fas fa-clock"></i> 평일 09:00 - 18:00</p>
                 </div>
             </div>
             <div class="footer-divider"></div>
             <div class="footer-bottom">
-                <p class="copyright">© 2025 글로벌 케어. All Rights Reserved.</p>
+                <p class="copyright">© 2025 콕콕 케어. All Rights Reserved.</p>
                 <div class="footer-bottom-links">
-                    <a href="#">이용약관</a>
-                    <a href="#">개인정보처리방침</a>
-                    <a href="#">쿠키 정책</a>
+                    <a href="https://www.notion.so/1a81c82081f380aba8b0f3ac8510961b?v=1a81c82081f3801a9239000c587a767a&pvs=4">이용약관</a>
+                    <a href="https://www.notion.so/1a81c82081f380aba8b0f3ac8510961b?v=1a81c82081f3801a9239000c587a767a&pvs=4">개인정보처리방침</a>
+                    <a href="https://www.notion.so/1a81c82081f380aba8b0f3ac8510961b?v=1a81c82081f3801a9239000c587a767a&pvs=4">쿠키 정책</a>
                 </div>
             </div>
         </div>
